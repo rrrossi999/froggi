@@ -24,7 +24,7 @@
 
     <template v-if="isLoading">
       <div v-for="_ in 4" class="inscription-list__item --loading">
-        <UniversalImage src="/images/fungi/logo.png" class="inscription-list__item-icon" />
+        <UniversalImage src="/images/froggi/logo.png" class="inscription-list__item-icon" />
 
         <div class="inscription-list__item-info">
           <div class="inscription-list__item-title">Froggi</div>

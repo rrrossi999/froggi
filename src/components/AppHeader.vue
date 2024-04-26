@@ -91,7 +91,6 @@ async function init() {
   tokenBalance.value = decimalsOff(balance, decimals)
   inscriptionBalance.value = inscriptions.length
   inscriptionSupply.value = totalInscriptionSupply
-  console.log(holderAmount);
   holderAmount.value = holders
 }
 </script>

@@ -41,8 +41,6 @@ class Fungi {
       this.contract.call('dynamicInscriptionTotalCount'),
       this.contract.call('inscriptionsTotalCount'),
     ])
-    console.log(spores);
-    console.log(mushrooms);
     return Number(spores) + Number(mushrooms)
   }
 
@@ -54,7 +52,6 @@ class Fungi {
       this.getSeedSvg(seed),
       this.getSeedMeta(seed),
     ])
-    console.log(meta);
     return {
       svg,
       seed,
