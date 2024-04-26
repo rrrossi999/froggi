@@ -4,8 +4,8 @@
 
     <div class="header__content">
       <div class="header__info">
-        <UniversalImage src="./images/fungi/logo.png" class="header__info-image" />
-        <div class="header__info-title">Fungi</div>
+        <UniversalImage src="./images/froggi/frog-token.png" class="header__info-image" />
+        <div class="header__info-title">Froggi</div>
         <div class="header__info-description">CA: {{ CONTRACTS.token.address }}</div>
       </div>
 
@@ -32,7 +32,7 @@
           {{ shortAddress(userStore.address, 4) }}
         </BaseButton>
 
-        <div class="header__connection-point">Your $FUNGI: <NumberText>{{ tokenBalance }}</NumberText></div>
+        <div class="header__connection-point">Your $Froggi: <NumberText>{{ tokenBalance }}</NumberText></div>
         <div class="header__connection-point">Your Inscriptions: <NumberText>{{ inscriptionBalance }}</NumberText></div>
       </template>
 
@@ -91,6 +91,7 @@ async function init() {
   tokenBalance.value = decimalsOff(balance, decimals)
   inscriptionBalance.value = inscriptions.length
   inscriptionSupply.value = totalInscriptionSupply
+  console.log(holderAmount);
   holderAmount.value = holders
 }
 </script>
@@ -99,7 +100,7 @@ async function init() {
 .header
   position: relative
   min-height: 364px
-  background-image: url('/images/fungi/background-1.png')
+  background-image: url('/images/froggi/frogbanner-wide.png')
   background-position: center
   background-size: 100%
   display: flex
@@ -191,7 +192,7 @@ async function init() {
 
   @media screen and (max-width: $breakpointMobile)
     background-size: 120%
-    background-image: url('/images/fungi/background-2.png')
+    background-image: url('/images/froggi/frogbanner-wide.png')
     min-height: unset
 
     &__content

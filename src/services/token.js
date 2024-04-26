@@ -21,7 +21,7 @@ class Fungi {
   }
 
   async getSeedByIndex(address, index) {
-    return this.contract.call('mushroomOfOwnerByIndex', [address, index])
+    return this.contract.call('inscriptionOfOwnerByIndex', [address, index])
   }
 
   async getSeedSvg(seed) {
@@ -38,10 +38,11 @@ class Fungi {
 
   async getInscriptionSupply() {
     const [spores, mushrooms] = await Promise.all([
-      this.contract.call('sporesTotalCount'),
-      this.contract.call('mushroomsTotalCount'),
+      this.contract.call('dynamicInscriptionTotalCount'),
+      this.contract.call('inscriptionsTotalCount'),
     ])
-
+    console.log(spores);
+    console.log(mushrooms);
     return Number(spores) + Number(mushrooms)
   }
 
@@ -53,7 +54,7 @@ class Fungi {
       this.getSeedSvg(seed),
       this.getSeedMeta(seed),
     ])
-
+    console.log(meta);
     return {
       svg,
       seed,
@@ -66,9 +67,9 @@ class Fungi {
       count,
       degree,
     ] = await Promise.all([
-      this.contract.call('mushroomCount', [address]),
-      this.contract.call('sporesDegree', [address]),
-    ])
+      this.contract.call('inscriptionCount', [address]),
+      this.contract.call('dynamicInscription', [address]),
+    ]) 
 
     const seedPromises = []
 

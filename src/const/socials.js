@@ -3,12 +3,12 @@ import { CONTRACTS } from '@/const/contracts'
 export const SOCIALS = [
   {
     icon: './images/socials/x.png',
-    url: 'https://twitter.com/Fungi_ERC20i'
+    url: 'https://twitter.com/Froggi_ERC20i'
   },
 
   {
     icon: './images/socials/github.png',
-    url: 'https://github.com/ToddStool/fungi'
+    url: 'https://github.com/Isabello/froggi'
   },
 
   {
@@ -23,11 +23,11 @@ export const SOCIALS = [
 
   {
     icon: './images/socials/dextools.png',
-    url: `https://www.dextools.io/app/en/base/pair-explorer/0x8ce9b689018fc94f44540b62ba6e10dc8b346448`
+    url: `https://www.dextools.io/app/en/base/pair-explorer/??`
   },
 
   {
     icon: './images/socials/dexscreener.png',
-    url: `https://dexscreener.com/base/0x8ce9b689018fc94f44540b62ba6e10dc8b346448`
+    url: `https://dexscreener.com/base/??`
   },
 ]

@@ -7,7 +7,6 @@ class Contract {
     contract.options.address = contractAddress
 
     this.contract = contract
-
     return this
   }
 

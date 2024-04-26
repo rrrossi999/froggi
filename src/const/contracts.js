@@ -2,7 +2,7 @@ import ABIS from '@/const/abis'
 
 export const CONTRACTS = {
   token: {
-    address: '0x7d9CE55D54FF3FEddb611fC63fF63ec01F26D15F',
+    address: '0x5FbDB2315678afecb367f032d93F642f64180aa3',
     abi: ABIS.token,
   },
 }

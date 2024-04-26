@@ -2,9 +2,8 @@
   <div class="page">
     <div class="page__header">
       <TextWrapper :max-symbols="102" class="page__description">
-        Fungi, $FUNGI. The First ERC-20i with Native Inscriptions./n/n
-        $FUNGI is a unique, fully on-chain art project offering an innovative new ERC-20i format with inscription metadata. Each portion of tokens resembles a seed that generates unique 24x24 dynamic images of Fungi stored on-chain, depending on the wallet's token balance./n/n
-        To achieve a visual rendering of the project, we built a front end and uploaded it to the decentralized IPFS storage, making the project immutable. All project files, including the arts, smart contracts, and the frontend app's source codes, were uploaded to the project's GitHub page for other developers who want to utilize the new ERC-20i inscriptions format.
+        Froggi, $froggi. A next generation PFP/n/n
+        $Froggi is a unique, fully on-chain PFP project offering users the ability to reroll their token(s). Each portion of tokens resembles a seed that generates unique 100x100 dynamic images stored on-chain, depending on the wallet's token balance./n/n
       </TextWrapper>
 
       <SocialsBlock class="page__socials" />
@@ -68,8 +67,8 @@ import { onMounted, ref, watch } from 'vue'
 import { useUserStore } from '@/stores'
 import { connect } from '@/services/user'
 
-const HOLDER_AMOUNT_PER_PAGE = 3
-const LOAD_MORE_TIMEOUT = 15
+const HOLDER_AMOUNT_PER_PAGE = 5
+const LOAD_MORE_TIMEOUT = 2
 
 const userStore = useUserStore()
 
