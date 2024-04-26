@@ -1,7 +1,7 @@
 import { createWeb3Modal, defaultWagmiConfig } from '@web3modal/wagmi/vue'
 import { base, hardhat } from '@wagmi/core/chains'
 
-const projectId = '718e3fe502080e8ed967b458d568c21d' // <-- put your walletconnect projectId here
+const projectId = (NODE_ENV == "production"? WALLET_CONNECT_PROD : WALLET_CONNECT_DEV); // <-- put your walletconnect projectId here
 
 const chains = [hardhat]
 const wagmiConfig = defaultWagmiConfig({
