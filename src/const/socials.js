@@ -7,6 +7,11 @@ export const SOCIALS = [
   },
 
   {
+    icon: './images/socials/telegram.png',
+    url: 'https://t.me/froggi_erc20i'
+  },
+
+  {
     icon: './images/socials/github.png',
     url: 'https://github.com/Isabello/froggi'
   },
