@@ -99,7 +99,7 @@ async function init() {
 .header
   position: relative
   min-height: 364px
-  background-image: url('/images/froggi/frogbanner-wide.png')
+  background-image: url('/images/froggi/frogbanner-subtle.jpg')
   background-position: center
   background-size: 100%
   display: flex
@@ -112,7 +112,7 @@ async function init() {
     left: 0
     width: 100%
     height: 100%
-    background: linear-gradient(to right, rgba(0, 20, 20, 0.6), rgba(0, 20, 20, 0.6), rgba(0, 0, 0, 0), rgba(0, 0, 0, 0), rgba(0, 20, 10, 0.4))
+    background: linear-gradient(to right, rgba(0, 20, 20, 0.3), rgba(0, 20, 20, 0.3), rgba(0, 0, 0, .1), rgba(0, 0, 0, .1), rgba(0, 20, 10, 0.4))
     z-index: 0
 
   &__connection
@@ -126,6 +126,11 @@ async function init() {
     right: 64px
     color: $mainColor
     text-align: right
+
+    &-point
+      font-weight: 900
+      font-size: 18px
+    
 
     &-button
       margin-bottom: 12px
@@ -147,10 +152,14 @@ async function init() {
     color: $mainColor
 
     &-title
-      font-size: 48px
-      font-weight: 600
-      font-family: 'Kiwi Soda', monospace !important
-      text-transform: lowercase
+      font-size: 0
+      background-image: url('/images/froggi/logo.png')
+      background-size: contain
+      background-repeat: no-repeat
+      width: 100%
+      height: 100%
+      width: 18rem
+      height: 10rem
 
     &-image
       height: 96px
@@ -167,6 +176,7 @@ async function init() {
 
     &-description
       word-break: break-all
+      font-size: 18px
 
   &__data
     display: flex
@@ -192,7 +202,7 @@ async function init() {
 
   @media screen and (max-width: $breakpointMobile)
     background-size: 120%
-    background-image: url('/images/froggi/frogbanner-wide.png')
+    background-image: url('/images/froggi/frogbanner-subtle.jpg')
     min-height: unset
 
     &__content
