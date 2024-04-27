@@ -191,8 +191,9 @@ async function init() {
     font-size: 20px
 
     &-title
-      color: darkgray
+      color: white
       font-size: 18px
+      font-weight: 900
 
     &-value
       font-size: 24px
