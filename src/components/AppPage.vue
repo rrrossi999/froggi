@@ -3,7 +3,7 @@
     <div class="page__header">
       <TextWrapper :max-symbols="102" class="page__description">
         Froggi, $froggi. A next generation PFP/n/n
-        $Froggi is a unique, fully on-chain PFP project offering users the ability to reroll their token(s). Each portion of tokens resembles a seed that generates unique 100x100 dynamic images stored on-chain, depending on the wallet's token balance./n/n
+        $Froggi is a unique, fully on-chain PFP project offering users the ability to reroll their token(s). Each portion of tokens resembles a seed that generates unique dynamic images stored on-chain, depending on the wallet's token balance./n/n Leap into it!
       </TextWrapper>
 
       <SocialsBlock class="page__socials" />
@@ -173,6 +173,7 @@ function startLoadMoreTimer() {
     &-heading
       font-size: 32px
       font-weight: 600
+      font-family: 'Kiwi Soda', monospace !important
 
   &__header
     display: flex
@@ -183,7 +184,7 @@ function startLoadMoreTimer() {
 
   &__description
     max-width: 50%
-    font-size: 17px
+    font-size: 18px
 
     span
       font-weight: 600

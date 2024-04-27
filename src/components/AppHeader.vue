@@ -112,7 +112,7 @@ async function init() {
     left: 0
     width: 100%
     height: 100%
-    background-color: rgba(0, 0, 0, 0.75)
+    background: linear-gradient(to right, rgba(0, 20, 20, 0.6), rgba(0, 20, 20, 0.6), rgba(0, 0, 0, 0), rgba(0, 0, 0, 0), rgba(0, 20, 10, 0.4))
     z-index: 0
 
   &__connection
@@ -147,8 +147,10 @@ async function init() {
     color: $mainColor
 
     &-title
-      font-size: 36px
+      font-size: 48px
       font-weight: 600
+      font-family: 'Kiwi Soda', monospace !important
+      text-transform: lowercase
 
     &-image
       height: 96px
@@ -164,7 +166,6 @@ async function init() {
       cursor: pointer
 
     &-description
-      font-size: 15px
       word-break: break-all
 
   &__data
