@@ -3,7 +3,7 @@ import { base, hardhat } from '@wagmi/core/chains'
 
 const projectId = (NODE_ENV == "production"? WALLET_CONNECT_PROD : WALLET_CONNECT_DEV); // <-- put your walletconnect projectId here
 
-const chains = [hardhat]
+const chains = [base, hardhat]
 const wagmiConfig = defaultWagmiConfig({
   chains,
   projectId,

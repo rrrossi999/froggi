@@ -10,7 +10,6 @@
       <div class="inscription-list__item-info">
         <div class="inscription-list__item-title">
           {{ (inscription.seed.isDynamic ? (inscription.seed.seed < 3000 ?'Dynamic Egg': 'Dynamic Froggi') :(inscription.seed.seed < 3000 ?'Stable Egg': 'Stable Froggi')) }}
-       
            {{formatNumberWithComma(inscription.seed.seed)}}
         </div>
         <a
