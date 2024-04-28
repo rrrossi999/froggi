@@ -85,12 +85,12 @@ class Fungi {
     return seeds
   }
 
-  async getHolders(fromIndex = 0, holderAmount = 4) {
+  async getHolders(fromIndex = 0, holderAmount = 10) {
     const holders = await this.contract.call('getHoldersList', [fromIndex, holderAmount])
-    return holders.filter(address => !address.startsWith('0x000000'))
+    return holders.filter(address => !address.startsWith('0x000000')).filter(address => !address.startsWith('0x300078b1bE7A5ab99D67d31513e8dEDA4e18A8F2')) ;
   }
 
-  async getHoldersSeeds(fromIndex = 0, amount = 4) {
+  async getHoldersSeeds(fromIndex = 0, amount = 10) {
     const holders = await this.getHolders(fromIndex, amount)
 
     const holdersSeeds = await Promise.all(
