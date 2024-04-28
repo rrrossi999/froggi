@@ -3,7 +3,7 @@
     <div v-html="item.svg" class="meta-modal__image" />
 
     <div class="meta-modal__title">
-      {{ (item.seed.isDynamic ? (item.seed.seed < 3000 ?'Dynamic Egg': 'Dynamic Froggi') :(inscription.seed.seed < 3000 ?'Stable Egg': 'Stable Froggi')) }} <NumberText>{{ item.seed.seed }}</NumberText>
+      {{ (item.seed.isDynamic ? (item.seed.seed < 3000 ?'Dynamic Egg': 'Dynamic Froggi') :(item.seed.seed < 3000 ?'Stable Egg': 'Stable Froggi')) }} <NumberText>{{ item.seed.seed }}</NumberText>
     </div>
 
     <div v-for="[key, value] of Object.entries(item.meta)" class="meta-modal__point">
