@@ -1,11 +1,13 @@
 <template>
   <div class="inscription-list">
     <div
-        v-for="inscription in inscriptions"
+        v-for="(inscription, index) in inscriptions"
+        :key="index"
         class="inscription-list__item"
         @click="onItemClick(inscription)"
     >
-      <div v-html="inscription.svg" class="inscription-list__item-icon"></div>
+      <div v-html="inscription.svg" class="inscription-list__item-icon" :ref="setSvgRef"></div>
+      <button @click.stop="createGif(index)">Create GIF</button>
 
       <div class="inscription-list__item-info">
         <div class="inscription-list__item-title">
@@ -34,6 +36,9 @@
 </template>
 
 <script setup>
+import { ref, onMounted } from 'vue';
+import html2canvas from 'html2canvas';
+import GIF from 'gif.js.optimized';
 import { useLayoutStore } from '@/stores'
 import { formatNumberWithComma } from '@/utils/number'
 
@@ -50,6 +55,57 @@ defineProps({
 })
 
 const layoutStore = useLayoutStore()
+const svgElements = ref([]);
+
+function setSvgRef(el) {
+  if (el) {
+    svgElements.value.push(el);
+  }
+}
+
+
+onMounted(() => {
+  svgElements.value = svgElements.value.filter(el => el); // Filter out undefined elements
+});
+
+const createGif = async (index) => {
+  const svgElement = svgElements.value[index];
+  if (!svgElement) {
+    console.error('SVG element not found for index', index);
+    return;
+  }
+
+  const gif = new GIF({
+    workers: 2,
+    quality: 10,
+    workerScript: 'node_modules/gif.js.optimized/dist/gif.worker.js'
+  });
+
+  let intervalId = null;
+  let duration = 1000; // Total duration in milliseconds
+  let interval = 100; // Interval at which to capture frames
+
+  // Function to capture a frame
+  const captureFrame = async () => {
+    const canvas = await html2canvas(svgElement);
+    gif.addFrame(canvas, { delay: interval });
+  };
+
+  // Start capturing frames
+  intervalId = setInterval(async () => {
+    await captureFrame();
+  }, interval);
+
+  // Stop capturing after the specified duration
+  setTimeout(() => {
+    clearInterval(intervalId);
+    gif.on('finished', function(blob) {
+      console.log(blob)
+      window.open(URL.createObjectURL(blob));
+    });
+    gif.render();
+  }, duration);
+};
 
 function onItemClick(item) {
   layoutStore.openModal('Info', { item })

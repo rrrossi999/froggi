@@ -11,7 +11,7 @@
 import AppHeader from '@/components/AppHeader.vue'
 import AppPage from '@/components/AppPage.vue'
 import AppModal from '@/components/AppModal.vue'
-import { onMounted } from 'vue'
+import { ref, onMounted } from 'vue'
 import { checkForConnection } from '@/services/user'
 
 onMounted(checkForConnection)

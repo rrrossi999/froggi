@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SVG to GIF Converter</title>
+    <script type="module" src="/src/gif-maker.js"></script>
+</head>
+<body>
+    <h1>SVG to GIF Converter</h1>
+    <div>
+        <svg id="animatedSVG" width="200" height="200" viewBox="0 0 100 100">
+            <!-- Insert your animated SVG content here -->
+            <!-- Example animated SVG circle -->
+            <circle cx="50" cy="50" r="40" stroke="green" stroke-width="4" fill="yellow">
+                <animate attributeName="cx" from="50" to="70" dur="1s" repeatCount="indefinite"/>
+            </circle>
+        </svg>
+        <button onclick="captureSVG()">Convert to GIF</button>
+    </div>
+    <br>
+    <img id="outputGif" alt="Generated GIF will appear here">
+
+    <script>
+        const svgElement = document.getElementById('animatedSVG');
+        const maxFrames = 100; // Maximum frames to capture before stopping
+
+        function captureSVG() {
+            let gif = new GIF({
+                workers: 2,
+                quality: 10,
+                workerScript: 'https://cdn.jsdelivr.net/npm/gif.js@0.2.0/dist/gif.worker.js'
+            });
+
+            let frameCount = 0;
+            let firstFrame = null;
+            let lastFrame = null;
+
+            const captureFrame = () => {
+                frameCount++;
+                const data = new XMLSerializer().serializeToString(svgElement);
+                if (frameCount === 1) firstFrame = data;
+
+                if (data === firstFrame && frameCount > 1) {
+                    // Loop detected, stop capturing more frames
+                    gif.render();
+                    return;
+                }
+
+                // Convert SVG data to a Blob and add to GIF
+                const blob = new Blob([data], {type: 'image/svg+xml;charset=utf-8'});
+                const url = URL.createObjectURL(blob);
+
+                const image = new Image();
+                image.onload = () => {
+                    gif.addFrame(image, {delay: 100, copy: true});
+                    URL.revokeObjectURL(url);
+
+                    if (frameCount < maxFrames) {
+                        requestAnimationFrame(captureFrame); // Capture next frame
+                    } else {
+                        gif.render(); // Render the GIF
+                    }
+                };
+                image.src = url;
+            };
+
+            gif.on('finished', function(blob) {
+                document.getElementById('outputGif').src = URL.createObjectURL(blob);
+            });
+
+            captureFrame(); // Start capturing frames
+        }
+    </script>
+</body>
+</html>
